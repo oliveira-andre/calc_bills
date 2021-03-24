@@ -2,6 +2,8 @@
 
 require 'byebug'
 
+Dir['./src/services/*.rb'].sort.each { |file| require file }
+
 class CalcBills
   def initialize
     @still_running = true
@@ -31,7 +33,7 @@ class CalcBills
 
     case @option.to_i
     when 1
-      debugger
+      SpentService.new.execute
     when 0
       @still_running = false
     else
