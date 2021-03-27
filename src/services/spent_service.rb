@@ -21,10 +21,9 @@ class SpentService
   private
 
   def load_values
-    load_spent_name
-    load_spent_value
-    load_total_spent
-    load_total_amount
+    %w[spent_name spent_value total_spent total_amount].each do |method|
+      send("load_#{method}")
+    end
   end
 
   def load_spent_name
