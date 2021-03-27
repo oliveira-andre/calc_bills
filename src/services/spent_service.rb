@@ -88,10 +88,10 @@ class SpentService
   end
 
   def total_debits
-    number_to_currency(@total_spent)
+    number_to_currency(@total_spent.to_i + @spent_value.to_i)
   end
 
   def current_balance
-    number_to_currency(@current_balance)
+    number_to_currency(@current_balance.to_i - @spent_value.to_i)
   end
 end
