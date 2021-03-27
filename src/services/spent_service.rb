@@ -56,7 +56,7 @@ class SpentService
   def raw_spent
     puts '| Name                            | Price                             | Checked? |'
     puts '|:-------------------------------:|:---------------------------------:|:--------:|'
-    puts "|#{    spent_name_with_space     }|#{      spent_value_with_space    }| [x]      |"
+    puts "| #{   spent_name_with_space     }| #{    spent_value_with_space     }| [x]      |"
   end
 
   def spent_value_with_space
@@ -66,7 +66,7 @@ class SpentService
   def number_to_currency(value)
     currency = "R$ #{(decimal(value).divmod 1).first},#{(decimal(value).divmod 1).last}"
     currency_with_space = currency
-    (0..(34 - currency.length)).each { |_n| currency_with_space += ' ' }
+    (0..(33 - currency.length)).each { |_n| currency_with_space += ' ' }
     currency_with_space
   end
 
@@ -76,15 +76,15 @@ class SpentService
 
   def spent_name_with_space
     spent_with_space = @spent_name.capitalize
-    (0..(32 - @spent_name.length)).each { |_n| spent_with_space += ' ' }
+    (0..(31 - @spent_name.length)).each { |_n| spent_with_space += ' ' }
     spent_with_space
   end
 
   def raw_total
     puts '| Name                            | Price                             | Checked? |'
     puts '|:-------------------------------:|:---------------------------------:|:--------:|'
-    puts "|Total Debits                     |#{      total_debits              }| [x]      |"
-    puts "|Current Balance                  |#{      current_balance           }| [x]      |"
+    puts "| Total Debits                    | #{     total_debits              }| [x]      |"
+    puts "| Current Balance                 | #{     current_balance           }| [x]      |"
   end
 
   def total_debits
