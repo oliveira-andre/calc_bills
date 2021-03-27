@@ -44,7 +44,7 @@ class SpentService
 
   def load_total_amount
     puts 'How much is your total amount (no points, no commas, ex: 1300 == 13.00): '
-    @total_amount = gets.chomp.strip
+    @current_balance = gets.chomp.strip
   end
 
   def raw_result
@@ -60,15 +60,19 @@ class SpentService
     puts "|#{    spent_name_with_space     }|#{      spent_value_with_space    }| [x]      |"
   end
 
-  def spent_decimal
-    @spent_value.to_i / 100
+  def spent_value_with_space
+    number_to_currency(@spent_value)
   end
 
-  def spent_value_with_space
-    spent_value = "R$ #{(spent_decimal.divmod 1).first},#{(spent_decimal.divmod 1).last}"
-    spent_with_space = spent_value
-    (0..(34 - spent_value.length)).each { |_n| spent_with_space += ' ' }
-    spent_with_space
+  def number_to_currency(value)
+    currency = "R$ #{(decimal(value).divmod 1).first},#{(decimal(value).divmod 1).last}"
+    currency_with_space = currency
+    (0..(34 - currency.length)).each { |_n| currency_with_space += ' ' }
+    currency_with_space
+  end
+
+  def decimal(value)
+    value.to_i / 100
   end
 
   def spent_name_with_space
@@ -77,5 +81,18 @@ class SpentService
     spent_with_space
   end
 
-  def raw_total; end
+  def raw_total
+    puts '| Name                            | Price                             | Checked? |'
+    puts '|:-------------------------------:|:---------------------------------:|:--------:|'
+    puts "|Total Debits                     |#{      total_debits              }| [x]      |"
+    puts "|Current Balance                  |#{      current_balance           }| [x]      |"
+  end
+
+  def total_debits
+    number_to_currency(@total_spent)
+  end
+
+  def current_balance
+    number_to_currency(@current_balance)
+  end
 end
