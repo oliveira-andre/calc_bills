@@ -23,6 +23,7 @@ class CalcBills
 
   def show_options
     puts '1 - Calculate some spent'
+    puts '2 - Calculator'
     puts '0 - exit'
     puts
   end
@@ -34,6 +35,8 @@ class CalcBills
     case @option.to_i
     when 1
       SpentService.new.execute
+    when 2
+      CalculatorService.new.execute
     when 0
       @still_running = false
     else
