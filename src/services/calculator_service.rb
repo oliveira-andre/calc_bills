@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CalculatorService
   def initialize
     @result = 0
