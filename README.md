@@ -17,3 +17,14 @@ make run
 ```
 
 ## Instructions
+
+### Calculate spent
+
+You gonna need to set
+
+- Spent Name
+- Spent Value
+- Total Debits
+- Total Current Balance
+
+> If you  need to calculate some result, or any value or expression you can go to [previous section](#Calculator)
