@@ -18,9 +18,17 @@ make run
 
 ## Instructions
 
+### Calculator
+
+You gonna need to set:
+
+- Expression
+
+> Example: 8*(200+(1048/24))
+
 ### Calculate spent
 
-You gonna need to set
+You gonna need to set:
 
 - Spent Name
 - Spent Value
