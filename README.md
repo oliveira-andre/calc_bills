@@ -3,7 +3,7 @@
 This project was idealized by me, when i started to note my bills in Markdown
 but the design of tables was hard to code, then as a programmer i automatized it
 i combine some simple select options, to calculate my bills and generate my template tables
-isn't perfect sometimes but still much faster than write the code.
+isn't perfect sometimes but still much faster than write the code...
 
 ## How to use
 
